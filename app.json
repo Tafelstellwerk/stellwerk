@@ -1,0 +1,7 @@
+{
+  "name":"stellwerk",
+  "description":"An application for managing food donations across facilities",
+  "scripts":{},
+  "env":{},
+  "addons":[]
+}
