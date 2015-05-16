@@ -1,7 +1,11 @@
 {
   "name":"stellwerk",
   "description":"An application for managing food donations across facilities",
-  "scripts":{},
-  "env":{},
+  "scripts":{
+    "postdeploy": "bundle exec rake db:migrate; bundle exec rake db:seed"
+  },
+  "env":{
+    "RAILS_ENV": "production"
+  },
   "addons":[]
 }
