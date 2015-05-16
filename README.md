@@ -1,4 +1,4 @@
-# stellwerk
+# stellwerk [![Build Status](https://travis-ci.org/Tafelstellwerk/stellwerk.svg)](https://travis-ci.org/Tafelstellwerk/stellwerk)
 
 ![http://s.maxfellmuth.com/favicon/favicon.svg](http://s.maxfellmuth.com/favicon/favicon.svg)
 
