@@ -48,19 +48,35 @@ need by consulting the `Brewfile`.
   $ npm install
   ```
 6. Databases
-tbd
+
+  We are using SQLite3 locally which should run out of the box. On production and staging we are using Postgres. If you need to access these databases, contact Max.
 
 7. Make sure the test suite runs
 
   ```
   $ ./bin/rake
   ```
-  
+
 8. Environment vars
-tbd
+
+  You shouldn't need any locally.
 
 8. Run the rails server
   ```
   $ rails s
   ```
 
+## Deployment
+### Deploying to Production
+Production deployments happen automatically on every push to `master`.
+**Please make extra sure that the application in master is always in a clean state.**
+If you just want to try something out or show a WIP build, use staging deployments.
+
+You can access the production server under `https://stellwerk.herokuapp.com`
+
+### Deploying to Staging
+Staging Enviroments are created automatically for every pull-request.
+
+You can access your staging server under `https://stellwerk-pr-[YOUR PULL-REQUEST ID].herokuapp.com`
+
+*Please note that your stagig server will automatically be deleted once you merge or delete your pull-request.*
