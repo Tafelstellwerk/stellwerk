@@ -38,7 +38,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 
 group :production do
   gem 'pg'
