@@ -1,7 +1,10 @@
 # stellwerk
-An application for managing food donations across facilities
 
- Setup
+![http://s.maxfellmuth.com/favicon/favicon.svg](http://s.maxfellmuth.com/favicon/favicon.svg)
+
+An application for managing food donations across facilities.
+
+#Setup
 
 ## Basic assumptions
 
@@ -16,10 +19,12 @@ need by consulting the `Brewfile`.
 ## Basic setup
 
 1. Ruby
+
   See `.ruby-version` for the current ruby version we're using. We expect you
   to have already run `gem install bundler`
 
 2. Clone the project
+
   If you haven't already done so...
 
   ```
@@ -66,15 +71,15 @@ need by consulting the `Brewfile`.
   $ rails s
   ```
 
-## Deployment
-### Deploying to Production
+# Deployment
+## Deploying to Production
 Production deployments happen automatically on every push to `master`.
 **Please make extra sure that the application in master is always in a clean state.**
 If you just want to try something out or show a WIP build, use staging deployments.
 
 You can access the production server under `https://stellwerk.herokuapp.com`
 
-### Deploying to Staging
+## Deploying to Staging
 Staging Enviroments are created automatically for every pull-request.
 
 You can access your staging server under `https://stellwerk-pr-[YOUR PULL-REQUEST ID].herokuapp.com`
