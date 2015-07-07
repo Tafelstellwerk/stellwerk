@@ -5,16 +5,13 @@ class DonationsController < ApplicationController
 
   def index
     @donations = Donation.all
-    respond_with(@donations)
   end
 
   def show
-    respond_with(@donation)
   end
 
   def new
     @donation = Donation.new
-    respond_with(@donation)
   end
 
   def edit
@@ -23,17 +20,14 @@ class DonationsController < ApplicationController
   def create
     @donation = Donation.new(donation_params)
     @donation.save
-    respond_with(@donation)
   end
 
   def update
     @donation.update(donation_params)
-    respond_with(@donation)
   end
 
   def destroy
     @donation.destroy
-    respond_with(@donation)
   end
 
   private

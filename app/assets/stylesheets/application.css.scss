@@ -2,3 +2,15 @@
  *= require_tree .
  *= require_self
  */
+
+ $tafel-orange: #EC6B10;
+
+.button,
+.top-bar-section ul li > a.button {
+  background-color: $tafel-orange;
+  border: 0;
+  border-radius: 2px;
+  &:hover {
+    background-color: darken($tafel-orange, 10%);
+  }
+}

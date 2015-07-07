@@ -5,13 +5,26 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<%= render 'layouts/header' %>
 
-<%= yield %>
+<% flash.each do |name, msg| %>
+  <div data-alert class="alert-box text-center">
+   <%= content_tag(:span, msg) %>
+   <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="large-12 columns page_box">
+    <%= yield %>
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>
 
 </body>
 </html>
