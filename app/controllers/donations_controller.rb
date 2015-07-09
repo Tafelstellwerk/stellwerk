@@ -19,15 +19,24 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
-    @donation.save
+    if @donation.save
+      redirect_to donation_path(@donation), :alert => "Spende wurde erstellt"
+    else
+      redirect_to new_donation_path, :alert => "Spende konnte nicht erstellt werden"
+    end
   end
 
   def update
-    @donation.update(donation_params)
+    if @donation.update(donation_params)
+      redirect_to donation_path(@donation), :alert => "Spende wurde aktualisiert"
+    else
+      redirect_to edit_donation_path(@donation), :alert => "Spende konnte nicht aktualisiert werden"
+    end
   end
 
   def destroy
     @donation.destroy
+    redirect_to :action => :index, :alert => "Spende wurde entfernt"
   end
 
   private
