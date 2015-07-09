@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :donation do
-    title "MyString"
-amount 1
+    title "Test Donation"
+    amount 20
   end
 
 end
