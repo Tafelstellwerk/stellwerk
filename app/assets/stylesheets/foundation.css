@@ -1936,7 +1936,6 @@ meta.foundation-mq-topbar {
         color: #333333; }
         .top-bar-section ul li > button.info:hover, .top-bar-section ul li > button.info:focus {
           color: #FFFFFF; }
-    .top-bar-section ul li:hover:not(.has-form) > a  }
     .top-bar-section ul li.active > a {
       color: #FFFFFF; }
   .top-bar-section .has-form {
