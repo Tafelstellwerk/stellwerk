@@ -1788,7 +1788,7 @@ meta.foundation-mq-topbar {
       margin-top: -16px;
       top: 50%; }
       .top-bar .toggle-topbar.menu-icon a {
-        color: #FFFFFF;
+        color: #111;
         height: 34px;
         line-height: 33px;
         padding: 0 2.5rem 0 0.9375rem;
@@ -1801,19 +1801,13 @@ meta.foundation-mq-topbar {
           margin-top: -8px;
           top: 50%;
           right: 0.9375rem;
-          box-shadow: 0 0 0 1px #FFFFFF, 0 7px 0 1px #FFFFFF, 0 14px 0 1px #FFFFFF;
+          box-shadow: 0 0 0 1px #111, 0 7px 0 1px #111, 0 14px 0 1px #111;
           width: 16px; }
         .top-bar .toggle-topbar.menu-icon a span:hover:after {
           box-shadow: 0 0 0 1px "", 0 7px 0 1px "", 0 14px 0 1px ""; }
   .top-bar.expanded {
     background: transparent;
     height: auto; }
-    .top-bar.expanded .title-area {
-      background: #333333; }
-    .top-bar.expanded .toggle-topbar a {
-      color: #888888; }
-      .top-bar.expanded .toggle-topbar a span::after {
-        box-shadow: 0 0 0 1px #888888, 0 7px 0 1px #888888, 0 14px 0 1px #888888; }
     @media screen and (-webkit-min-device-pixel-ratio: 0) {
       .top-bar.expanded .top-bar-section .has-dropdown.moved > .dropdown,
       .top-bar.expanded .top-bar-section .dropdown {
@@ -2000,12 +1994,12 @@ meta.foundation-mq-topbar {
         margin-top: 0;
         font-size: 1.125rem; }
         .top-bar-section .dropdown li.title h5 a, .top-bar-section .dropdown li.parent-link a {
-          color: #FFFFFF;
+          color: #111;
           display: block; }
           .top-bar-section .dropdown li.title h5 a:hover, .top-bar-section .dropdown li.parent-link a:hover {
             background: none; }
       .top-bar-section .dropdown li.has-form {
-        padding: 8px 0.9375rem; }
+        padding: 8px; }
       .top-bar-section .dropdown li .button,
       .top-bar-section .dropdown li button {
         top: auto; }

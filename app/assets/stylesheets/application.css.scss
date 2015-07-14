@@ -35,13 +35,13 @@ $tafel-orange: #EC6B10;
 .top-bar-section ul li.active > a,
 .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button),
 .top-bar-section .dropdown li:not(.has-form).active > a:not(.button){
-  background: #ccc;
-  color: #111;
+  background: #444;
+  color: #fff;
 }
 
 .top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button) {
-  background: #eee;
-  color: #111;
+  background: #111;
+  color: #fff;
 }
 
 .button:hover,
@@ -54,10 +54,6 @@ $tafel-orange: #EC6B10;
 
 .top-bar-section .has-dropdown > a:after {
   border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
-}
-
-.has-dropdown {
-  background: none!important;
 }
 
 .button,
