@@ -20,7 +20,7 @@
           <a href="#"><%= current_user.email %></a>
           <ul class="dropdown">
             <li><%= link_to "Einstellungen", edit_user_registration_path %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
       </ul>
