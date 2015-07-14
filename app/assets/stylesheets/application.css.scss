@@ -3,7 +3,57 @@
  *= require_self
  */
 
+body {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 18px;
+}
+
+p {
+  font-size: 18px;
+}
+
  $tafel-orange: #EC6B10;
+
+.contain-to-grid ,.top-bar {
+  background: #e6e8e6;
+  font-size: 20px;
+}
+
+.top-bar .name h1 a {
+  color: #111;
+}
+
+.top-bar-section ul li,
+.top-bar-section li:not(.has-form) a:not(.button),
+.top-bar-section .has-form,
+.top-bar-section .has-dropdown .not-click .hover {
+  box-sizing: border-box;
+  background: none;
+  color: #111;
+}
+
+.top-bar-section ul li.active > a,
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button),
+.top-bar-section .dropdown li:not(.has-form).active > a:not(.button){
+  background: #ccc;
+  color: #111;
+}
+
+.top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button) {
+  background: #eee;
+}
+
+.button:hover,
+.top-bar-section li:not(.has-form) a:not(.button):hover,
+.top-bar-section ul li > a.button:hover,
+.top-bar-section li.active:not(.has-form) a:not(.button):hover {
+  background: none;
+  color: #666;
+}
+
+.top-bar-section .has-dropdown > a:after {
+  border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
+}
 
 .button,
 .top-bar-section ul li > a.button {
@@ -11,6 +61,17 @@
   border: 0;
   border-radius: 2px;
   &:hover {
+    color: #fff;
     background-color: darken($tafel-orange, 10%);
+  }
+}
+
+.styleguide {
+  margin-top: 60px;
+  .row.components {
+    margin-bottom: 100px;
+  }
+  .large-8 {
+    border-right: 1px solid #ccc;
   }
 }
