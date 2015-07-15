@@ -12,15 +12,34 @@ p {
   font-size: 18px;
 }
 
+.mt60 {
+  margin-top: 60px;
+}
+
+.mb20 {
+ margin-bottom: 20px;
+}
+
 $tafel-orange: #EC6B10;
+$tafel-green: #006C4C;
 
 .contain-to-grid ,.top-bar {
   background: #e6e8e6;
   font-size: 16px;
 }
 
-.top-bar .name h1 a {
-  color: #111;
+.top-bar {
+  height: 50px;
+}
+
+.top-bar .name  {
+  height: 100%;
+  h1 {
+    line-height: 47px;
+  }
+  h1 a {
+    color: #111;
+  }
 }
 
 .top-bar-section ul li,
@@ -30,6 +49,10 @@ $tafel-orange: #EC6B10;
   box-sizing: border-box;
   background: none;
   color: #111;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  line-height: 50px;
 }
 
 .top-bar-section ul li.active > a,
@@ -53,17 +76,35 @@ $tafel-orange: #EC6B10;
 }
 
 .top-bar-section .has-dropdown > a:after {
+  margin-top: -2px;
   border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
 }
 
 .button,
-.top-bar-section ul li > a.button {
+input[type="button"], input[type="reset"], input[type="submit"] {
+  color: #fff;
+  height: auto;
+  padding: 10px 15px;
+  -webkit-appearance: none;
+  font-size: 16px;
   background-color: $tafel-orange;
   border: 0;
   border-radius: 2px;
+  transition: all .2s ease;
   &:hover {
     color: #fff;
-    background-color: darken($tafel-orange, 10%);
+    background-color: $tafel-green;
+  }
+}
+
+.top-bar-section ul li > a.button {
+  font-size: 14px;
+  padding: 10px 15px;
+  height: auto;
+  margin-top: -3px;
+  &:hover {
+    color: #fff;
+    background-color: $tafel-green;
   }
 }
 
@@ -75,4 +116,67 @@ $tafel-orange: #EC6B10;
   .large-8 {
     border-right: 1px solid #ccc;
   }
+}
+
+label {
+  font-size: 14px;
+  color: #888;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cccccc;
+  color: rgba(0, 0, 0, 0.75);
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  height: 2.3125rem;
+  margin: 10px 0 20px 0;
+  padding: 25px 15px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: all .2s ease }
+  input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="color"]:focus, textarea:focus {
+    border-color: $tafel-green;
+    background: #fff;
+    outline: none; }
+  input[type="text"]:disabled, input[type="password"]:disabled, input[type="date"]:disabled, input[type="datetime"]:disabled, input[type="datetime-local"]:disabled, input[type="month"]:disabled, input[type="week"]:disabled, input[type="email"]:disabled, input[type="number"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="time"]:disabled, input[type="url"]:disabled, input[type="color"]:disabled, textarea:disabled {
+    background-color: #000;
+    cursor: default; }
+  input[type="text"][disabled], input[type="text"][readonly], fieldset[disabled] input[type="text"], input[type="password"][disabled], input[type="password"][readonly], fieldset[disabled] input[type="password"], input[type="date"][disabled], input[type="date"][readonly], fieldset[disabled] input[type="date"], input[type="datetime"][disabled], input[type="datetime"][readonly], fieldset[disabled] input[type="datetime"], input[type="datetime-local"][disabled], input[type="datetime-local"][readonly], fieldset[disabled] input[type="datetime-local"], input[type="month"][disabled], input[type="month"][readonly], fieldset[disabled] input[type="month"], input[type="week"][disabled], input[type="week"][readonly], fieldset[disabled] input[type="week"], input[type="email"][disabled], input[type="email"][readonly], fieldset[disabled] input[type="email"], input[type="number"][disabled], input[type="number"][readonly], fieldset[disabled] input[type="number"], input[type="search"][disabled], input[type="search"][readonly], fieldset[disabled] input[type="search"], input[type="tel"][disabled], input[type="tel"][readonly], fieldset[disabled] input[type="tel"], input[type="time"][disabled], input[type="time"][readonly], fieldset[disabled] input[type="time"], input[type="url"][disabled], input[type="url"][readonly], fieldset[disabled] input[type="url"], input[type="color"][disabled], input[type="color"][readonly], fieldset[disabled] input[type="color"], textarea[disabled], textarea[readonly], fieldset[disabled] textarea {
+    background-color: #000;
+    cursor: default; }
+  input[type="text"].radius, input[type="password"].radius, input[type="date"].radius, input[type="datetime"].radius, input[type="datetime-local"].radius, input[type="month"].radius, input[type="week"].radius, input[type="email"].radius, input[type="number"].radius, input[type="search"].radius, input[type="tel"].radius, input[type="time"].radius, input[type="url"].radius, input[type="color"].radius, textarea.radius {
+    border-radius: 3px; }
+
+.prefix, .postfix {
+  border-radius:0 4px 4px 0;
+  background-color: #f0f0f0;
+  border-style: solid;
+  border-width: 2px;
+  border-left: 0;
+  display: block;
+  font-size: 14px;
+  height: auto;
+  margin-top: 10px;
+  line-height: 2.3125rem;
+  overflow: visible;
+  padding: 6.5px 5px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+}
+
+span.postfix, label.postfix {
+  background: #fff;
+  color: #333333;
+  border-color: #cccccc;
 }
