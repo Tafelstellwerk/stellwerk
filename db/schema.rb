@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615192753) do
+ActiveRecord::Schema.define(version: 20150809154544) do
+
+  create_table "donation_cases", force: true do |t|
+    t.string   "title"
+    t.text     "comment"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "donation_cases", ["user_id"], name: "index_donation_cases_on_user_id"
 
   create_table "donations", force: true do |t|
     t.string   "title"
