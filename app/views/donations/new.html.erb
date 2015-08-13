@@ -1,5 +1,56 @@
-<h1>New donation</h1>
+<h1>Neuer Spendenfall</h1>
 
-<%= render 'form' %>
+<form method="post">
+  <div class="donation__case__new">
+    <div class="donation__case--seperator">
+      <div class="grid">
+        <div class="grid__half">
+          <h3>Organisation</h3>
+          <label>Name</label>
+          <input type="text"/>
+          <label>Straße und Hausnummer</label>
+          <input type="text"/>
+          <label>Postleitzahl und Ort</label>
+          <input type="text"/>
+        </div>
+        <div class="grid__half">
+          <h3>Ansprechpartner</h3>
+          <label>Name</label>
+          <input type="text"/>
+          <label>Telefon</label>
+          <input type="text"/>
+          <label>E-mail</label>
+          <input type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="donation__case__item">
+      <div class="grid">
+        <div class="grid__half">
+          <label>Name</label>
+          <input type="text"/>
+          <label>Menge</label>
+          <input type="text"/>
+          <label>Mindesthaltbarkeitsdatum</label>
+          <input type="text"/>
+          <label>Verfügbar ab</label>
+          <input type="text"/>
+        </div>
+        <div class="grid__half">
+          <label>Tiefkühlware</label>
+          <input type="radio" name="tief" value="yes">Ja
+          <input type="radio" name="tief" value="no">Nein
+          <label>Spendenbeleg</label>
+          <input type="radio" name="Spendenbeleg" value="yes">Ja
+          <input type="radio" name="Spendenbeleg" value="no">Nein
+          <label>Abholzeiten</label>
+          <input type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="donation__case__item donation__add">
+      Neuer Spendenposten
+    </div>
+  </div>
+</form>
 
-<%= link_to 'Back', donations_path %>
