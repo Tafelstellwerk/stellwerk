@@ -8,11 +8,13 @@ class DonationCasesController < ApplicationController
 
   # GET /donation_cases/1
   def show
+    redirect_to edit_donation_case_path(@donation_case)
   end
 
   # GET /donation_cases/new
   def new
-    @donation_case = DonationCase.new
+    @donation_case = DonationCase.create!
+    redirect_to edit_donation_case_path(@donation_case)
   end
 
   # GET /donation_cases/1/edit
@@ -53,6 +55,6 @@ class DonationCasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_case_params
-      params[:donation_case]
+      params.require(:donation_case).permit(:title, :comment)
     end
 end

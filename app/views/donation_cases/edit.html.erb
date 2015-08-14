@@ -1,6 +1,68 @@
-<h1>Editing donation_case</h1>
+<%= form_for(@donation_case) do |f| %>
+  <% if @donation_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_case.errors.count, "error") %> prohibited this donation_case from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @donation_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @donation_case %> |
-<%= link_to 'Back', donation_cases_path %>
+  <h1><%= f.text_field :title, placeholder: "Spendentitel" %></h1>
+
+  <div class="donation__case__new">
+    <div class="donation__case--seperator">
+      <div class="grid">
+        <div class="grid__half">
+          <h3>Organisation</h3>
+          <label>Name</label>
+          <input type="text"/>
+          <label>Straße und Hausnummer</label>
+          <input type="text"/>
+          <label>Postleitzahl und Ort</label>
+          <input type="text"/>
+        </div>
+        <div class="grid__half">
+          <h3>Ansprechpartner</h3>
+          <label>Name</label>
+          <input type="text"/>
+          <label>Telefon</label>
+          <input type="text"/>
+          <label>E-mail</label>
+          <input type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="donation__case__item">
+      <div class="grid">
+        <div class="grid__half">
+          <label>Name</label>
+          <input type="text"/>
+          <label>Menge</label>
+          <input type="text"/>
+          <label>Mindesthaltbarkeitsdatum</label>
+          <input type="text"/>
+          <label>Verfügbar ab</label>
+          <input type="text"/>
+        </div>
+        <div class="grid__half">
+          <label>Tiefkühlware</label>
+          <input type="radio" name="tief" value="yes"><span class="radio__label">Ja</span>
+          <input type="radio" name="tief" value="no"><span class="radio__label">Nein</span>
+          <label>Spendenbeleg</label>
+          <input type="radio" name="Spendenbeleg" value="yes"><span class="radio__label">Ja</span>
+          <input type="radio" name="Spendenbeleg" value="no"><span class="radio__label">Nein</span>
+          <label>Abholzeiten</label>
+          <input type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="donation__case__item donation__add">
+      Neuer Spendenposten
+    </div>
+  </div>
+  <%= f.submit "Submit", class: "button--submit" %>
+<% end %>
