@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :donations
+  resources :donation_cases
 
   devise_for :users
 
