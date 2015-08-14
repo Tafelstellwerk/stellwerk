@@ -36,6 +36,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'devise'
 gem 'bcrypt'
+gem 'paper_trail', '~> 4.0.0'
 
 group :production do
   gem 'pg'
