@@ -75,7 +75,10 @@ label {
   margin: 0 auto;
 }
 
-.button {
+.button, button {
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
   display: inline-block;
   font-size: 14px;
   padding: 10px 15px;
@@ -83,7 +86,23 @@ label {
   letter-spacing: 4px;
   color: #fff;
   background: $tafel-orange;
+  &:hover {
+    background: darken($tafel-orange, 10%);
+  }
 }
+
+.grid {
+  @extend .clearfix;
+}
+
+.grid__half {
+  width: 46%;
+  float: left;
+  &:nth-child(2) {
+    float: right;
+  }
+}
+
 
 header {
   background: #eee;
@@ -100,18 +119,11 @@ header {
     margin-right: 2px;
     margin-bottom: 30px;
   }
+
 }
 
-.grid {
-  @extend .clearfix;
-}
-
-.grid__half {
-  width: 46%;
-  float: left;
-  &:nth-child(2) {
-    float: right;
-  }
+.button--submit {
+  float: right;
 }
 
 .donation__case--seperator {
@@ -137,4 +149,7 @@ header {
   }
 }
 
+footer {
+  height: 60px;
+}
 
