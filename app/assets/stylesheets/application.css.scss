@@ -44,6 +44,13 @@ p {
   margin-bottom: 10px;
 }
 
+li {
+  list-style: none;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
 input {
   display: inline-block;
   font-size: 16px;
@@ -80,10 +87,8 @@ label {
   border: 0;
   outline: 0;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px 15px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
   color: #fff;
   background: $tafel-orange;
   &:hover {
@@ -135,7 +140,22 @@ header {
 .donation__case__item {
   background: #eee;
   padding: 60px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.donation__case__changes {
+  margin-top: 2px;
+  h3 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+}
+
+.date--changed {
+  padding-right: 10px;
+  color: #888;
 }
 
 .donation__add {
@@ -144,6 +164,7 @@ header {
   background: $tafel-orange;
   color: #fff;
   cursor: pointer;
+  margin-bottom: 40px;
   &:hover {
     background: darken($tafel-orange, 10%);
   }
