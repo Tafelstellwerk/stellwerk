@@ -10,11 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="donation-case-form">
+      <h1><%= f.text_field :title, placeholder: "Spendentitel" %></h1>
 
-  <h1><%= f.text_field :title, placeholder: "Spendentitel" %></h1>
-
-  <div class="donation__case__new">
-    <div class="donation__case--seperator">
+    <div class="donation-case-form__section">
       <div class="grid">
         <div class="grid__half">
           <h3>Organisation</h3>
@@ -36,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="donation__case__item">
+    <div class="donation-item">
       <div class="grid">
         <div class="grid__half">
           <label>Name</label>
@@ -60,9 +59,9 @@
         </div>
       </div>
     </div>
-    <div class="donation__case__item donation__add">
+    <div class="button button--light donation-case-form__add-donation-case-button">
       Neuer Spendenposten
     </div>
+    <%= f.submit "Submit", class: "button--primary button--large donation-case-form__submit-button" %>
   </div>
-  <%= f.submit "Submit", class: "button--submit" %>
 <% end %>
