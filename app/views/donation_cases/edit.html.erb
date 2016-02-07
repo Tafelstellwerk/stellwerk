@@ -1,9 +1,21 @@
-<h1>Neuer Spendenfall</h1>
+<%= form_for(@donation_case) do |f| %>
+  <% if @donation_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_case.errors.count, "error") %> prohibited this donation_case from being saved:</h2>
 
-<form method="post">
-  <div class="donation__case__new">
-    <div class="donation__case--seperator">
-      <div class="grid">
+      <ul>
+      <% @donation_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="donation-case-form">
+      <h1><%= f.text_field :title, placeholder: "Spendentitel" %></h1>
+
+    <div class="donation-case-form__section">
+      <div c lass="grid">
         <div class="grid__half">
           <h3>Organisation</h3>
           <label>Name</label>
@@ -24,7 +36,10 @@
         </div>
       </div>
     </div>
-    <div class="donation__case__item">
+
+    <%= react_component("Donations", {items: []}) %>
+
+    <div class="donation-item">
       <div class="grid">
         <div class="grid__half">
           <label>Name</label>
@@ -48,10 +63,9 @@
         </div>
       </div>
     </div>
-    <div class="donation__case__item donation__add">
+    <div class="button button--light donation-case-form__add-donation-case-button">
       Neuer Spendenposten
     </div>
+    <%= f.submit "Submit", class: "button--primary button--large donation-case-form__submit-button" %>
   </div>
-  <button class="button--submit">Submit</button>
-</form>
-
+<% end %>

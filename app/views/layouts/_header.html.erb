@@ -1,35 +1,8 @@
-<div class="contain-to-grid">
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><%= link_to "Stellwerk", root_path, class: "logo" %></h1>
-      </li>
-       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-    <section class="top-bar-section">
-    <% if user_signed_in? %>
-      <ul class="left">
-        <li><%= link_to "Meine Spenden", donations_path %></li>
-      </ul>
-      <ul class="right">
-         <li class="has-form">
-            <%= link_to "Neue Spende", new_donation_path, class: "button" %>
-        </li>
-        <li class="has-dropdown">
-          <a href="#"><%= current_user.email %></a>
-          <ul class="dropdown">
-            <li><%= link_to "Einstellungen", edit_user_registration_path %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </li>
-      </ul>
-    <% else %>
-    <ul class="right">
-      <li><%= link_to "Einloggen", new_user_session_path, class: "button" %></li>
-    </ul>
-    <% end %>
-    </section>
+<header>
+  <div class="container">
+  <%= link_to "Stellwerk", root_path, class: "logo" %>
+  <nav>
   </nav>
-</div>
+  </div>
+</header>
 

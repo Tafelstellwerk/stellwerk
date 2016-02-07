@@ -1,3 +1,22 @@
-<h1>Home#index</h1>
-<h2>Hello, <%= @user.email %>!</h2>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= link_to "Neuer Spenden-Case", new_donation_case_path, class: "button" %>
+<br/><br/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Comment</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @donation_cases.each do |donation_case| %>
+      <tr>
+        <td><%= donation_case.title %></td>
+        <td><%= donation_case.comment %></td>
+        <td><%= link_to 'Edit', edit_donation_case_path(donation_case) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

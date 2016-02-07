@@ -1,0 +1,17 @@
+<%= form_for(@donation_case) do |f| %>
+  <% if @donation_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_case.errors.count, "error") %> prohibited this donation_case from being saved:</h2>
+
+      <ul>
+      <% @donation_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
