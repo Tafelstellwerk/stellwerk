@@ -71,7 +71,7 @@ var Donations = React.createClass({
 
   render: function() {
     return <div>
-      {this.state.items.concat(this.newItems).map(function(item, i) {
+      {this.state.items.concat(this.state.newItems).map(function(item, i) {
           return (
             <Donation key={i} item={item}></Donation>
           )

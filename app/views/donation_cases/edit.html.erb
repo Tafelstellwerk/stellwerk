@@ -10,11 +10,12 @@
       </ul>
     </div>
   <% end %>
+
   <div class="donation-case-form">
       <h1><%= f.text_field :title, placeholder: "Spendentitel" %></h1>
 
     <div class="donation-case-form__section">
-      <div class="grid">
+      <div c lass="grid">
         <div class="grid__half">
           <h3>Organisation</h3>
           <label>Name</label>
@@ -35,6 +36,9 @@
         </div>
       </div>
     </div>
+
+    <%= react_component("Donations", {items: []}) %>
+
     <div class="donation-item">
       <div class="grid">
         <div class="grid__half">
