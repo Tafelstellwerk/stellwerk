@@ -9,7 +9,7 @@ RSpec.describe "donations/edit", type: :view do
   end
 
   it "renders the edit donation form" do
-    render
+    render :partial => "donations/form.html.erb"
 
     assert_select "form[action=?][method=?]", donation_path(@donation), "post" do
 
