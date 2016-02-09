@@ -39,6 +39,7 @@ gem 'react-rails', '~> 1.3.0'
 gem 'devise'
 gem 'bcrypt'
 gem 'paper_trail', '~> 4.0.0'
+gem 'rails-i18n', '~> 4.0.3'
 
 group :production do
   gem 'pg'

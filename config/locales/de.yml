@@ -1,0 +1,10 @@
+de:
+  activerecord:
+    attributes:
+      donation_case:
+        company_name: Name
+        address: Straße und Hausnummer
+        plz_and_city: Postleitzahl und Ort
+        contact_name: Name
+        phone: Telefon
+        email: E-mail

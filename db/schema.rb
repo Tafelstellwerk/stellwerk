@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813195325) do
+ActiveRecord::Schema.define(version: 20160208111057) do
 
   create_table "donation_cases", force: true do |t|
     t.string   "title"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20150813195325) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "company_name"
+    t.string   "address"
+    t.string   "plz_and_city"
+    t.string   "contact_name"
+    t.string   "phone"
+    t.string   "email"
   end
 
   add_index "donation_cases", ["user_id"], name: "index_donation_cases_on_user_id"
@@ -29,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150813195325) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "donation_case_id"
+    t.text     "properties"
   end
 
   add_index "donations", ["donation_case_id"], name: "index_donations_on_donation_case_id"
