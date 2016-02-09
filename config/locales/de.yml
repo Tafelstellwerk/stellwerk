@@ -8,3 +8,10 @@ de:
         contact_name: Name
         phone: Telefon
         email: E-mail
+      donation:
+        title: Name
+        best_before_date: Mindesthaltbarkeitsdatum
+        availible_from: Verfügbar ab
+        froozen: Tiefkühlware
+        supporting_document: Spendenbeleg
+        fetch_time: Abholzeiten

@@ -6,7 +6,7 @@ RSpec.describe "donation_cases/new", type: :view do
   end
 
   it "renders new donation_case form" do
-    render
+    render :partial => "donation_cases/form.html.erb"
 
     assert_select "form[action=?][method=?]", donation_cases_path, "post" do
     end
