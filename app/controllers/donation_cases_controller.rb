@@ -14,6 +14,7 @@ class DonationCasesController < ApplicationController
   # GET /donation_cases/new
   def new
     @donation_case = DonationCase.create!
+    @donation = @donation_case.donations.create!
     redirect_to edit_donation_case_path(@donation_case)
   end
 
@@ -55,6 +56,6 @@ class DonationCasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_case_params
-      params.require(:donation_case).permit(:title, :comment, :company_name, :address, :plz_and_city, :contact_name, :phone, :email)
+      params.require(:donation_case).permit(:title, :comment, :company_name, :address, :plz_and_city, :contact_name, :phone, :email, donations_attributes: [:title, :amount, :best_before_date, :availible_from, :froozen, :supporting_document, :fetch_time,:id])
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208111057) do
+ActiveRecord::Schema.define(version: 20160211002351) do
 
   create_table "donation_cases", force: true do |t|
     t.string   "title"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(version: 20160208111057) do
     t.datetime "updated_at"
     t.integer  "donation_case_id"
     t.text     "properties"
+    t.string   "best_before_date"
+    t.string   "availible_from"
+    t.boolean  "froozen"
+    t.boolean  "supporting_document"
+    t.string   "fetch_time"
   end
 
   add_index "donations", ["donation_case_id"], name: "index_donations_on_donation_case_id"
