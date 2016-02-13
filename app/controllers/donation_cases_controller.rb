@@ -1,5 +1,6 @@
 class DonationCasesController < ApplicationController
   before_action :set_donation_case, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:edit]
 
   # GET /donation_cases
   def index
@@ -15,11 +16,12 @@ class DonationCasesController < ApplicationController
   def new
     @donation_case = DonationCase.create!
     @donation = @donation_case.donations.create!
-    redirect_to edit_donation_case_path(@donation_case)
+    redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token)
   end
 
   # GET /donation_cases/1/edit
   def edit
+    render "/donation_cases/nope.html.erb", layout: false unless @donation_case.present?
   end
 
   # POST /donation_cases
@@ -51,7 +53,7 @@ class DonationCasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_donation_case
-      @donation_case = DonationCase.find(params[:id])
+      @donation_case = DonationCase.find_by(token: params[:token])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

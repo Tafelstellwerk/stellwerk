@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211002351) do
+ActiveRecord::Schema.define(version: 20160212233352) do
 
   create_table "donation_cases", force: true do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160211002351) do
     t.string   "contact_name"
     t.string   "phone"
     t.string   "email"
+    t.string   "token"
   end
 
   add_index "donation_cases", ["user_id"], name: "index_donation_cases_on_user_id"

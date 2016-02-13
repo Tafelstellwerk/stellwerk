@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "donation_cases/edit", type: :view do
+RSpec.describe "donation_cases/edit.html.erb", type: :view do
   before(:each) do
     @donation_case = assign(:donation_case, DonationCase.create!())
   end

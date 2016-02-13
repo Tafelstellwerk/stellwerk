@@ -15,7 +15,7 @@
       <tr>
         <td><%= donation_case.title %></td>
         <td><%= donation_case.comment %></td>
-        <td><%= link_to 'Edit', edit_donation_case_path(donation_case) %></td>
+        <td><%= link_to 'Edit', edit_donation_case_path(donation_case, token: donation_case.token) %></td>
       </tr>
     <% end %>
   </tbody>

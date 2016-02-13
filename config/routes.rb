@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
 
   authenticated :user do
-    root :to => "home#index", as: :user_root
+    root :to => "donation_cases#index", as: :user_root
   end
 
   root to: "home#index_signed_out"
