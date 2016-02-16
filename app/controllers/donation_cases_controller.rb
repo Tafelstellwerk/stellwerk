@@ -1,6 +1,6 @@
 class DonationCasesController < ApplicationController
   before_action :set_donation_case, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:edit]
+  before_action :authenticate_user!, :except => [:edit, :update]
 
   # GET /donation_cases
   def index
@@ -29,7 +29,7 @@ class DonationCasesController < ApplicationController
     @donation_case = DonationCase.new(donation_case_params)
 
     if @donation_case.save
-      redirect_to @donation_case, notice: 'Donation case was successfully created.'
+      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: 'Donation case was successfully created.'
     else
       render :new
     end
@@ -38,7 +38,7 @@ class DonationCasesController < ApplicationController
   # PATCH/PUT /donation_cases/1
   def update
     if @donation_case.update(donation_case_params)
-      redirect_to @donation_case, notice: 'Donation case was successfully updated.'
+      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: 'Donation case was successfully updated.'
     else
       render :edit
     end

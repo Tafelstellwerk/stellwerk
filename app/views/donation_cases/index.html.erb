@@ -15,7 +15,7 @@
       <tr>
         <td><%= link_to 'Show', donation_case %></td>
         <td><%= link_to 'Edit', edit_donation_case_path(donation_case, token: donation_case.token) %></td>
-        <td><%= link_to 'Destroy', donation_case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', donation_case_path(donation_case, token: donation_case.token), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
