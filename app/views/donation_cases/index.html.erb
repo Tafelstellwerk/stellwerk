@@ -1,6 +1,8 @@
 <%= link_to "Neuer Spenden-Case", new_donation_case_path, class: "button" %>
 <br/><br/>
 
+Veränderte Spenden
+<br/>
 <table>
   <thead>
     <tr>
@@ -11,7 +13,29 @@
   </thead>
 
   <tbody>
-    <% @donation_cases.each do |donation_case| %>
+    <% @changed_donation_cases.each do |donation_case| %>
+      <tr>
+        <td><%= link_to 'Show', donation_case %></td>
+        <td><%= link_to 'Edit', edit_donation_case_path(donation_case, token: donation_case.token) %></td>
+        <td><%= link_to 'Destroy', donation_case_path(donation_case, token: donation_case.token), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+Unverändert
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Comment</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unchanged_donation_cases.each do |donation_case| %>
       <tr>
         <td><%= link_to 'Show', donation_case %></td>
         <td><%= link_to 'Edit', edit_donation_case_path(donation_case, token: donation_case.token) %></td>

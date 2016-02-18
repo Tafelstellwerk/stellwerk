@@ -6,6 +6,18 @@ class DonationCase < ActiveRecord::Base
 
   has_paper_trail
 
+  def get_donation_versions(user_signed_in)
+    return Hash.new  unless user_signed_in && self.need_review == true
+    self.donations.inject(Hash.new) do |memo, donation|
+      memo.deep_merge(Hash[donation.id => donation.versions.last.changeset || Hash.new])
+    end
+  end
+
+  def update_with_need_review_flag(params, user_signed_in)
+    user_signed_in ? params.merge!(need_review: false) : params.merge!(need_review: true)
+    self.update(params)
+  end
+
   protected
     def set_token
       self.token = rand(36**8).to_s(36)

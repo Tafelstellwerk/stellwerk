@@ -1,10 +1,11 @@
 class DonationCasesController < ApplicationController
   before_action :set_donation_case, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:edit, :update]
+  before_action :authenticate_user!, except: [:edit, :update]
 
   # GET /donation_cases
   def index
-    @donation_cases = DonationCase.all
+    @changed_donation_cases = DonationCase.where( need_review: true)
+    @unchanged_donation_cases = DonationCase.where( need_review: false)
   end
 
   # GET /donation_cases/1
@@ -21,6 +22,7 @@ class DonationCasesController < ApplicationController
 
   # GET /donation_cases/1/edit
   def edit
+    @donations_changeset_hash = @donation_case.get_donation_versions(user_signed_in?)
     render "/donation_cases/nope.html.erb", layout: false unless @donation_case.present?
   end
 
@@ -37,7 +39,7 @@ class DonationCasesController < ApplicationController
 
   # PATCH/PUT /donation_cases/1
   def update
-    if @donation_case.update(donation_case_params)
+    if @donation_case.update_with_need_review_flag(donation_case_params, user_signed_in?)
       redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: 'Donation case was successfully updated.'
     else
       render :edit
@@ -58,6 +60,16 @@ class DonationCasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_case_params
-      params.require(:donation_case).permit(:title, :comment, :company_name, :address, :plz_and_city, :contact_name, :phone, :email, donations_attributes: [:title, :amount, :best_before_date, :availible_from, :froozen, :supporting_document, :fetch_time,:id])
+      params.require(:donation_case).permit(donation_case_attributes, donation_attributes)
+    end
+
+    #shorten permit in donation_case_params
+    def donation_case_attributes
+      [:title, :comment, :company_name, :address, :plz_and_city, :contact_name, :phone, :email]
+    end
+
+    #shorten permit in donation_case_params
+    def donation_attributes
+      { donations_attributes: [:title, :amount, :best_before_date, :availible_from, :froozen, :supporting_document, :fetch_time,:id]}
     end
 end
