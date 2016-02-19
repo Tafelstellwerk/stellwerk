@@ -2,7 +2,7 @@
   <div class="grid">
     <div class="grid__half">
       <%= donation.label :title %>
-      <%= donation.text_field :title %>
+      <%= donation.text_field :title, :class => "#{'test' if attribute_changed(item.id, :title)}" %>
       <%= donation.label :amount %>
       <%= donation.text_field :amount %>
       <%= donation.label :best_before_date %>

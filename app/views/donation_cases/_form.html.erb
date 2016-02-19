@@ -1,11 +1,10 @@
-<h1><%= f.text_field :title, placeholder: "Spendentitel" %></h1>
-
+<h1><%= f.text_field :title, :class => "#{'test' if attribute_changed(1, :title)}", placeholder: "Spendentitel" %></h1>
 <div class="donation-case-form__section clearfix">
   <div c lass="grid">
     <div class="grid__half">
       <h3>Organisation</h3>
       <%= f.label :company_name %>
-      <%= f.text_field :company_name %>
+      <%= f.text_field :company_name, :class => "#{'test' if attribute_changed(f, :company_name)}"%>
       <%= f.label :address %>
       <%= f.text_field :address %>
       <%= f.label :plz_and_city %>

@@ -10,44 +10,19 @@
       </ul>
     </div>
   <% end %>
+
+  <%= @donations_changeset_hash.inspect %>
+
   <div class="donation-case-form">
     <%= render :partial => '/donation_cases/form', locals: {f: f} %>
 
-    <%= f.fields_for :donations do |donation| %>
-          <div class="donation-item">
-            <div class="grid">
-              <div class="grid__half">
-                <%= donation.label :title %>
-                <%= donation.text_field :title %>
-                <%= donation.label :amount %>
-                <%= donation.text_field :amount %>
-                <%= donation.label :best_before_date %>
-                <%= donation.text_field :best_before_date %>
-                <%= donation.label :availible_from %>
-                <%= donation.text_field :availible_from %>
-              </div>
-              <div class="grid__half">
-                <label>Tiefkühlware</label>
-                <%= donation.radio_button(:froozen, "true") %>
-                <span class="radio__label">Ja</span>
-                <%= donation.radio_button(:froozen, "false") %>
-                <span class="radio__label">Nein</span>
-                <label>Tiefkühlware</label>
-                <%= donation.radio_button(:supporting_document, "true") %>
-                <span class="radio__label">Ja</span>
-                <%= donation.radio_button(:supporting_document, "false") %>
-                <span class="radio__label">Nein</span>
-                <%= donation.label :fetch_time %>
-                <%= donation.text_field :fetch_time %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-
     <%= react_component("Donations", {items: []}) %>
-
-    <%= f.fields_for :donations do |donation| %>
-      <%= render :partial => '/shared/donation', locals: {donation: donation} %>
+    <%= @donation_case.donations.each do |item| %>
+      <%= f.fields_for :donations, item do |donation| %>
+        <%= item.id %>
+        
+        <%= render :partial => '/shared/donation', locals: {donation: donation, item: item} %>
+      <% end %>
     <% end %>
 
     <div class="button button--light donation-case-form__add-donation-case-button">
