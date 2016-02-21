@@ -49,6 +49,9 @@ input {
   border-radius: 2px;
   border: 1px solid #ccc;
   outline: none;
+  &.changed {
+    border-color: $tafel-orange;
+  }
   &:focus {
     border-color: $tafel-orange;
   }

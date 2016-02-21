@@ -2,13 +2,13 @@
   <div class="grid">
     <div class="grid__half">
       <%= donation.label :title %>
-      <%= donation.text_field :title, :class => "#{'test' if attribute_changed(item.id, :title)}" %>
+      <%= donation.text_field :title, class: "#{'changed' if attribute_changed(item.id, :title)}" %>
       <%= donation.label :amount %>
-      <%= donation.text_field :amount %>
+      <%= donation.text_field :amount, class: "#{'changed' if attribute_changed(item.id, :amount)}" %>
       <%= donation.label :best_before_date %>
-      <%= donation.text_field :best_before_date %>
+      <%= donation.text_field :best_before_date, class: "#{'changed' if attribute_changed(item.id, :best_before_date)}" %>
       <%= donation.label :availible_from %>
-      <%= donation.text_field :availible_from %>
+      <%= donation.text_field :availible_from, class: "#{'changed' if attribute_changed(item.id, :availible_from)}" %>
     </div>
     <div class="grid__half">
       <label>Tiefkühlware</label>

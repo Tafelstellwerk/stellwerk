@@ -6,7 +6,11 @@ class DonationCase < ActiveRecord::Base
 
   has_paper_trail
 
-  def get_donation_versions(user_signed_in)
+  def get_changeset(user_signed_in)
+    user_signed_in ? self.versions.last.changeset : Hash.new
+  end
+
+  def get_donations_changeset(user_signed_in)
     return Hash.new  unless user_signed_in && self.need_review == true
     self.donations.inject(Hash.new) do |memo, donation|
       memo.deep_merge(Hash[donation.id => donation.versions.last.changeset || Hash.new])

@@ -1,23 +1,23 @@
-<h1><%= f.text_field :title, :class => "#{'test' if attribute_changed(1, :title)}", placeholder: "Spendentitel" %></h1>
+<h1><%= f.text_field :title, class: "#{'changed' if @donation_case_changeset.has_key?(:title)}", placeholder: "Spendentitel" %></h1>
 <div class="donation-case-form__section clearfix">
   <div c lass="grid">
     <div class="grid__half">
       <h3>Organisation</h3>
       <%= f.label :company_name %>
-      <%= f.text_field :company_name, :class => "#{'test' if attribute_changed(f, :company_name)}"%>
+      <%= f.text_field :company_name, class: "#{'changed' if @donation_case_changeset.has_key?(:company_name)}"%>
       <%= f.label :address %>
-      <%= f.text_field :address %>
+      <%= f.text_field :address, class: "#{'changed' if @donation_case_changeset.has_key?(:address)}" %>
       <%= f.label :plz_and_city %>
-      <%= f.text_field :plz_and_city %>
+      <%= f.text_field :plz_and_city, class: "#{'changed' if @donation_case_changeset.has_key?(:plz_and_city)}" %>
     </div>
     <div class="grid__half">
       <h3>Ansprechpartner</h3>
       <%= f.label :contact_name %>
-      <%= f.text_field :contact_name %>
+      <%= f.text_field :contact_name, class: "#{'changed' if @donation_case_changeset.has_key?(:contact_name)}" %>
       <%= f.label :phone %>
-      <%= f.text_field :phone %>
+      <%= f.text_field :phone, class: "#{'changed' if @donation_case_changeset.has_key?(:phone)}" %>
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, class: "#{'changed' if @donation_case_changeset.has_key?(:email)}" %>
     </div>
   </div>
 </div>

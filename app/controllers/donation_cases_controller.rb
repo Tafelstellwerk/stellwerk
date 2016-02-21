@@ -22,7 +22,8 @@ class DonationCasesController < ApplicationController
 
   # GET /donation_cases/1/edit
   def edit
-    @donations_changeset_hash = @donation_case.get_donation_versions(user_signed_in?)
+    @donation_case_changeset = @donation_case.get_changeset(user_signed_in?)
+    @donations_changeset = @donation_case.get_donations_changeset(user_signed_in?)
     render "/donation_cases/nope.html.erb", layout: false unless @donation_case.present?
   end
 

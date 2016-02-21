@@ -10,17 +10,12 @@
       </ul>
     </div>
   <% end %>
-
-  <%= @donations_changeset_hash.inspect %>
-
   <div class="donation-case-form">
     <%= render :partial => '/donation_cases/form', locals: {f: f} %>
 
     <%= react_component("Donations", {items: []}) %>
-    <%= @donation_case.donations.each do |item| %>
+    <%- @donation_case.donations.each do |item| %>
       <%= f.fields_for :donations, item do |donation| %>
-        <%= item.id %>
-        
         <%= render :partial => '/shared/donation', locals: {donation: donation, item: item} %>
       <% end %>
     <% end %>
