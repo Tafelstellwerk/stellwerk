@@ -2,13 +2,13 @@
   <div class="grid">
     <div class="grid__half">
       <%= donation.label :title %>
-      <%= donation.text_field :title, class: "#{'changed' if attribute_changed(item.id, :title)}" %>
+      <%= donation.text_field :title, class: "#{'changed' if changeset.has_key?(:title)}" %>
       <%= donation.label :amount %>
-      <%= donation.text_field :amount, class: "#{'changed' if attribute_changed(item.id, :amount)}" %>
+      <%= donation.text_field :amount, class: "#{'changed' if changeset.has_key?(:amount)}" %>
       <%= donation.label :best_before_date %>
-      <%= donation.text_field :best_before_date, class: "#{'changed' if attribute_changed(item.id, :best_before_date)}" %>
+      <%= donation.text_field :best_before_date, class: "#{'changed' if changeset.has_key?(:best_before_date)}" %>
       <%= donation.label :availible_from %>
-      <%= donation.text_field :availible_from, class: "#{'changed' if attribute_changed(item.id, :availible_from)}" %>
+      <%= donation.text_field :availible_from, class: "#{'changed' if changeset.has_key?(:availble_from)}" %>
     </div>
     <div class="grid__half">
       <label>Tiefkühlware</label>
@@ -22,7 +22,7 @@
       <%= donation.radio_button(:supporting_document, "false") %>
       <span class="radio__label">Nein</span>
       <%= donation.label :fetch_time %>
-      <%= donation.text_field :fetch_time %>
+      <%= donation.text_field :fetch_time, class: "#{'changed' if changeset.has_key?(:fetch_time)}" %>
     </div>
   </div>
 </div>

@@ -14,10 +14,8 @@
     <%= render :partial => '/donation_cases/form', locals: {f: f} %>
 
     <%= react_component("Donations", {items: []}) %>
-    <%- @donation_case.donations.each do |item| %>
-      <%= f.fields_for :donations, item do |donation| %>
-        <%= render :partial => '/shared/donation', locals: {donation: donation, item: item} %>
-      <% end %>
+    <%= f.fields_for :donations do |donation| %>
+      <%= render :partial => '/shared/donation', locals: {donation: donation, changeset: @donations_changeset[donation.object.id] || Hash.new} %>
     <% end %>
 
     <div class="button button--light donation-case-form__add-donation-case-button">
