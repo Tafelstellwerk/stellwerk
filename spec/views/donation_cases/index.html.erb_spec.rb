@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "donation_cases/index", type: :view do
   before(:each) do
-    assign(:donation_cases, [
+    assign(:changed_donation_cases, [
+      DonationCase.create!(),
+      DonationCase.create!()
+    ])
+    assign(:unchanged_donation_cases, [
       DonationCase.create!(),
       DonationCase.create!()
     ])
