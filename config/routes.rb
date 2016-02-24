@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :donations
-  resources :donation_cases
+  resources :donation_cases, except: :create
 
   devise_for :users
 

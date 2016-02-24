@@ -27,21 +27,10 @@ class DonationCasesController < ApplicationController
     render "/donation_cases/nope.html.erb", layout: false unless @donation_case.present?
   end
 
-  # POST /donation_cases
-  def create
-    @donation_case = DonationCase.new(donation_case_params)
-
-    if @donation_case.save
-      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: 'Donation case was successfully created.'
-    else
-      render :new
-    end
-  end
-
   # PATCH/PUT /donation_cases/1
   def update
     if @donation_case.update_with_need_review_flag(donation_case_params, user_signed_in?)
-      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: 'Donation case was successfully updated.'
+      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: t('.update')
     else
       render :edit
     end
@@ -50,7 +39,7 @@ class DonationCasesController < ApplicationController
   # DELETE /donation_cases/1
   def destroy
     @donation_case.destroy
-      redirect_to donation_cases_url, notice: 'Donation case was successfully destroyed.'
+      redirect_to donation_cases_url, notice: t('.destroy')
   end
 
   private

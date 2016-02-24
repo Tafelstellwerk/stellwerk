@@ -15,3 +15,10 @@ de:
         froozen: Tiefkühlware
         supporting_document: Spendenbeleg
         fetch_time: Abholzeiten
+  donation_cases:
+    update:
+      update: "Spende wurde aktualisiert."
+    destroy:
+      destroy: "Spende wurde gelöscht."
+
+
