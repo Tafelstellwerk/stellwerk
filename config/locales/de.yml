@@ -15,6 +15,8 @@ de:
         froozen: Tiefkühlware
         supporting_document: Spendenbeleg
         fetch_time: Abholzeiten
+      user:
+        remember_me: Eingeloggt bleiben
   donation_cases:
     update:
       update: "Spende wurde aktualisiert."
