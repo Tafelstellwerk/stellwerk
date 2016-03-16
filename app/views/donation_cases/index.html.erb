@@ -6,18 +6,23 @@ Veränderte Spenden
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Comment</th>
-      <th colspan="1"></th>
+      <th>Spendentitel</th>
+      <th>Organisation</th>
+      <th>Erstellt am</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @changed_donation_cases.each do |donation_case| %>
       <tr>
-        <td><%= link_to 'Show', donation_case %></td>
-        <td><%= link_to 'Edit', edit_donation_case_path(donation_case, token: donation_case.token) %></td>
-        <td><%= link_to 'Destroy', donation_case_path(donation_case, token: donation_case.token), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= donation_case.title || "Noch kein Title" %>
+        <td><%= donation_case.company_name || "Noch kein Organisation" %>
+        <td><%= donation_case.created_at.to_date.strftime("%d.%m.%y") %>
+        <td>
+          <%= link_to 'Show', donation_case %>
+          <%= link_to 'Edit', edit_donation_case_path(donation_case, token: donation_case.token) %>
+          <%= link_to 'Destroy', donation_case_path(donation_case, token: donation_case.token), method: :delete, data: { confirm: 'Are you sure?' } %>
       </tr>
     <% end %>
   </tbody>
@@ -27,19 +32,23 @@ Unverändert
 <br>
 <table>
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Comment</th>
-      <th colspan="1"></th>
+      <th>Spendentitel</th>
+      <th>Organisation</th>
+      <th>Erstellt am</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @unchanged_donation_cases.each do |donation_case| %>
       <tr>
-        <td><%= link_to 'Show', donation_case %></td>
-        <td><%= link_to 'Edit', edit_donation_case_path(donation_case, token: donation_case.token) %></td>
-        <td><%= link_to 'Destroy', donation_case_path(donation_case, token: donation_case.token), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= donation_case.title || "Noch kein Title" %>
+        <td><%= donation_case.company_name || "Noch kein Organisation" %>
+        <td><%= donation_case.created_at.strftime("%d.%m.%y") %>
+        <td>
+          <%= link_to 'Show', donation_case %>
+          <%= link_to 'Edit', edit_donation_case_path(donation_case, token: donation_case.token) %>
+          <%= link_to 'Destroy', donation_case_path(donation_case, token: donation_case.token), method: :delete, data: { confirm: 'Are you sure?' } %>
       </tr>
     <% end %>
   </tbody>
