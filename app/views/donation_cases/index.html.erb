@@ -16,8 +16,8 @@
   <tbody>
     <% @changed_donation_cases.each do |donation_case| %>
       <tr>
-        <td><%= donation_case.title || "Noch kein Title" %>
-        <td><%= donation_case.company_name || "Noch kein Organisation" %>
+        <td><%= "#{donation_case.title.presence || 'Noch kein Titel'}"  %>
+        <td><%= "#{donation_case.company_name.presence || 'Noch kein Organisation'}" %>
         <td><%= donation_case.created_at.to_date.strftime("%d.%m.%y") %>
         <td>
           <%= link_to 'Show', donation_case %>
@@ -43,8 +43,8 @@
   <tbody>
     <% @unchanged_donation_cases.each do |donation_case| %>
       <tr>
-        <td><%= donation_case.title || "Noch kein Title" %>
-        <td><%= donation_case.company_name || "Noch kein Organisation" %>
+        <td><%= "#{donation_case.title.presence || 'Noch kein Titel'}" %>
+        <td><%= "#{donation_case.company_name.presence || 'Noch kein Organisation'}"%>
         <td><%= donation_case.created_at.strftime("%d.%m.%y") %>
         <td>
           <%= link_to 'Show', donation_case %>
