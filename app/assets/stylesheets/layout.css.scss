@@ -56,7 +56,8 @@ input {
 label {
   color: #888;
   display: block;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 6px;
   font-size: 16px;
 }
 
@@ -67,9 +68,22 @@ label {
   font-size: 14px;
 }
 
-.container, .alert-box {
+.container{
   width: 960px;
   margin: 0 auto;
+}
+
+.alert-box{
+  position: relative;
+  bottom: 40px;
+  height: 40px;
+  margin-bottom: 20px;
+  background-color: #006c4c;
+  line-height: 40px;
+  .centered{
+    width: 960px;
+    margin: 0 auto;
+  }
 }
 
 .button, button {
@@ -149,11 +163,25 @@ header {
 footer {
   height: 60px;
 }
-
+.text{
+  font-size: 16px;
+  color: #888;
+}
 table {
   width: 100%;
   position: relative;
+  margin-bottom: 40px;
   td, th {
     width: 25%;
+    padding-top: 12px;
+  }
+  td {
+    color: #888;
+    font-size: 16px;
+  }
+  th {
+    font-weight: normal;
+    color: #222;
+    text-align: left;
   }
 }
