@@ -6,6 +6,15 @@ class DonationCase < ActiveRecord::Base
 
   has_paper_trail
 
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |product|
+        csv << product.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   def get_changeset(user_signed_in)
     user_signed_in ? self.versions.last.changeset : Hash.new
   end

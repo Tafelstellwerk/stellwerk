@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :donation_deliveries, except: [:create, :show]
   get 'donation_delivery/:id/reopen', to: 'donation_deliveries#reopen', as: :reopen_donation_delivery
+  get 'donation_delivery/:id/download_xls', to: 'donation_deliveries#download_xls', as: :download_xls_donation_delivery
 
   devise_for :users
 

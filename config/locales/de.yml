@@ -25,6 +25,8 @@ de:
     close:
       close: "Spendenaufnahme abgeschlossen. Du findest die Spende nun bei Spendenverteilung."
   donation_deliveries:
+    update:
+      update: "Spende wurde aktualisiert."
     reopen:
       open: "Spendenaufnahme wurde wieder geöffnet. Du findest die Spende nun bei Spendenaufnahme."
 

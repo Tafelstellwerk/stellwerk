@@ -13,8 +13,9 @@ class DonationDeliveriesController < ApplicationController
 
   # PATCH/PUT /donation_deliveries/1
   def update
-    if @donation_case.update_with_closed_flag(donation_deliveries_params)
-      redirect_to edit_donation_deliveries_path(@donation_case), notice: t('.update')
+    @donation_case = DonationCase.find_by(id: params[:id])
+    if @donation_case.update_attributes(donation_deliveries_params)
+      redirect_to edit_donation_delivery_path(@donation_case), notice: t('.update')
     else
       render :edit
     end
@@ -27,6 +28,14 @@ class DonationDeliveriesController < ApplicationController
       redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token),flash: {reopen: t('.open')}
     else
       render :edit
+    end
+  end
+
+  # GET /donation_delivery/1/download_xls
+  def download_xls
+    @donation_case = DonationCase.find_by(id: params[:id])
+    respond_to do |format|
+      format.xls { response.headers['Content-Disposition'] = "attachment; filename='#{@donation_case.title}.xls'"}
     end
   end
 
