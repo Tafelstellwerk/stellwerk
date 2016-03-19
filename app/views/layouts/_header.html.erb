@@ -1,10 +1,10 @@
 <header>
   <div class="container">
-  <nav>
-    <%= link_to "Stellwerk", root_path, class: "logo" %>
-    <%= link_to "Spendenaufnahme", donation_cases_path, class: "logo" %>
-    <%= link_to "Spendenverteilung", donation_deliveries_path, class: "logo" %>
-  </nav>
+    <nav>
+      <%= link_to "Stellwerk", root_path, class: "logo" %>
+      <%= link_to "Spendenaufnahme", donation_cases_path, class: "logo" if user_signed_in?%>
+      <%= link_to "Spendenverteilung", donation_deliveries_path, class: "logo" if user_signed_in?%>
+    </nav>
   </div>
 </header>
 
