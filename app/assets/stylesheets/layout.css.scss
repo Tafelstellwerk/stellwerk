@@ -147,6 +147,7 @@ header {
 .donation-case-form {
   input[type="text"] {
     width: 100%;
+    box-sizing: border-box;
   }
 
   input[type="radio"] {
