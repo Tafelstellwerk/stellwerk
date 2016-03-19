@@ -39,7 +39,7 @@ class DonationCasesController < ApplicationController
   # GET /donation_cases/1/close
   def close
     if @donation_case.update_attribute(:closed, true)
-      redirect_to edit_donation_delivery_path(@donation_case), closed: t('.close')
+      redirect_to edit_donation_delivery_path(@donation_case),flash: {closed: t('.close')}
     else
       render :edit
     end

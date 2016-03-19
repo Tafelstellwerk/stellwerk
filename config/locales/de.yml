@@ -23,9 +23,9 @@ de:
     destroy:
       destroy: "Spende wurde gelöscht."
     close:
-      close: "Spendenaufnahme abgeschlossen."
+      close: "Spendenaufnahme abgeschlossen. Du findest die Spende nun bei Spendenverteilung."
   donation_deliveries:
     reopen:
-      open: "Spendenaufnahme wurde wieder geöffnet."
+      open: "Spendenaufnahme wurde wieder geöffnet. Du findest die Spende nun bei Spendenaufnahme."
 
 

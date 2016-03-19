@@ -24,7 +24,7 @@ class DonationDeliveriesController < ApplicationController
   def reopen
     @donation_case = DonationCase.find_by(id: params[:id])
     if @donation_case.update_attribute(:closed, false)
-      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: t('.open')
+      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token),flash: {reopen: t('.open')}
     else
       render :edit
     end
