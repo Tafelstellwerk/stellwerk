@@ -15,6 +15,7 @@ class DonationDeliveriesController < ApplicationController
   def update
     @donation_case = DonationCase.find_by(id: params[:id])
     if @donation_case.update_attributes(donation_deliveries_params)
+      @donation_case.donations.create! if params[:commit] == 'Neuer Spendenposten'
       redirect_to edit_donation_delivery_path(@donation_case), notice: t('.update')
     else
       render :edit

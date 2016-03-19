@@ -30,9 +30,10 @@ class DonationCasesController < ApplicationController
   # PATCH/PUT /donation_cases/1
   def update
     if @donation_case.update_with_need_review_flag(donation_case_params, user_signed_in?)
+      @donation_case.donations.create! if params[:commit] == 'Neuer Spendenposten'
       redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: t('.update')
     else
-      render :edit
+      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: t('.error')
     end
   end
 
@@ -41,7 +42,7 @@ class DonationCasesController < ApplicationController
     if @donation_case.update_attribute(:closed, true)
       redirect_to edit_donation_delivery_path(@donation_case),flash: {closed: t('.close')}
     else
-      render :edit
+      redirect_to edit_donation_delivery_path(@donation_case, token: @donation_case.token), notice: t('.error')
     end
   end
 
