@@ -19,7 +19,7 @@ class DonationCase < ActiveRecord::Base
 
   def update_with_need_review_flag(params, user_signed_in)
     user_signed_in ? params.merge!(need_review: false) : params.merge!(need_review: true)
-    self.update(params)
+    self.update_attributes(params)
   end
 
   protected

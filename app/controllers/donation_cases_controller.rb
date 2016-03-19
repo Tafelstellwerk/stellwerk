@@ -1,11 +1,11 @@
 class DonationCasesController < ApplicationController
-  before_action :set_donation_case, only: [:show, :edit, :update, :destroy]
+  before_action :set_donation_case, only: [:show, :edit, :update, :destroy, :close]
   before_action :authenticate_user!, except: [:edit, :update]
 
   # GET /donation_cases
   def index
-    @changed_donation_cases = DonationCase.where( need_review: true)
-    @unchanged_donation_cases = DonationCase.where( need_review: false)
+    @changed_donation_cases = DonationCase.where( closed: false).where( need_review: true)
+    @unchanged_donation_cases = DonationCase.where( closed: false).where( need_review: false)
   end
 
   # GET /donation_cases/1
@@ -30,7 +30,16 @@ class DonationCasesController < ApplicationController
   # PATCH/PUT /donation_cases/1
   def update
     if @donation_case.update_with_need_review_flag(donation_case_params, user_signed_in?)
-      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: t('.update')
+      redirect_to edit_donation_case_path(@donation_case), notice: t('.update')
+    else
+      render :edit
+    end
+  end
+
+  # GET /donation_cases/1/close
+  def close
+    if @donation_case.update_attribute(:closed, true)
+      redirect_to edit_donation_delivery_path(@donation_case), notice: t('.close')
     else
       render :edit
     end
@@ -45,7 +54,7 @@ class DonationCasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_donation_case
-      @donation_case = DonationCase.find_by(token: params[:token])
+      @donation_case = DonationCase.find_by(token: params[:token], closed: false)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

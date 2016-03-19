@@ -22,5 +22,10 @@ de:
       update: "Spende wurde aktualisiert."
     destroy:
       destroy: "Spende wurde gelöscht."
+    close:
+      close: "Spendenaufnahme abgeschlossen."
+  donation_deliveries:
+    reopen:
+      open: "Spendenaufnahme wurde wieder geöffnet."
 
 
