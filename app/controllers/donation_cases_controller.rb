@@ -15,7 +15,7 @@ class DonationCasesController < ApplicationController
 
   # GET /donation_cases/new
   def new
-    @donation_case = DonationCase.create!
+    @donation_case = DonationCase.create!(closed: false)
     @donation = @donation_case.donations.create!
     redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token)
   end
@@ -30,7 +30,7 @@ class DonationCasesController < ApplicationController
   # PATCH/PUT /donation_cases/1
   def update
     if @donation_case.update_with_need_review_flag(donation_case_params, user_signed_in?)
-      redirect_to edit_donation_case_path(@donation_case), notice: t('.update')
+      redirect_to edit_donation_case_path(@donation_case, token: @donation_case.token), notice: t('.update')
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class DonationCasesController < ApplicationController
   # GET /donation_cases/1/close
   def close
     if @donation_case.update_attribute(:closed, true)
-      redirect_to edit_donation_delivery_path(@donation_case), notice: t('.close')
+      redirect_to edit_donation_delivery_path(@donation_case), closed: t('.close')
     else
       render :edit
     end
