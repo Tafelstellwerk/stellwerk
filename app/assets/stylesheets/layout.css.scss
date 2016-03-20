@@ -167,14 +167,42 @@ header {
     background: $tafel-orange;
     color: #fff;
     cursor: pointer;
-
+    border: solid 1px $tafel-orange;
     &:hover {
-      background: darken($tafel-orange, 10%);
+      color: $tafel-orange;
+      background-color: white;
     }
   }
 
   &__submit-button {
-    float: right;
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    outline: none;
+    text-transform: uppercase;
+    &.right{
+      float: right;
+      color: $tafel-orange;
+      background-color: white;
+      border: solid 1px $tafel-orange;
+      &:hover {
+        color: white;
+        background-color: $tafel-orange;
+      }
+    }
+    &.black {
+      background-color: white;
+      color: #6d6d6d;
+      border: 1px solid #6d6d6d;
+      left: 107px;
+      position: relative;
+      &:hover {
+        color: white;
+        background-color: #6d6d6d;
+      }
+    }
   }
 
 }

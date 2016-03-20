@@ -13,13 +13,13 @@
   <div class="donation-case-form">
     <%= render :partial => '/donation_deliveries/form', locals: {f: f} %>
 
-    <%= react_component("Donations", {items: []}) %>
+    <!-- <%= react_component("Donations", {items: []}) %> -->
     <%= f.fields_for :donations do |donation| %>
       <%= render :partial => '/shared/donation_without_changes', locals: {donation: donation} %>
     <% end %>
 
     <%= f.submit "Neuer Spendenposten", class: "button button--light donation-case-form__add-donation-case-button" %>
-    <%= link_to "Spende wieder eröffnen", reopen_donation_delivery_path(@donation_case, token: @donation_case.token), class: "button--primary button--large donation-case-form__submit-button" if user_signed_in? %>
-    <%= f.submit "Submit", class: "button--primary button--large donation-case-form__submit-button" %>
+    <%= link_to "Spende wiedereröffnen", reopen_donation_delivery_path(@donation_case, token: @donation_case.token), class: "button--primary button--large donation-case-form__submit-button black" if user_signed_in? %>
+    <%= f.submit "Speichern", class: "button--primary button--large donation-case-form__submit-button right" %>
   </div>
 <% end %>
