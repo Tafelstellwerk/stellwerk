@@ -17,6 +17,9 @@ de:
         fetch_time: Abholzeiten
       user:
         remember_me: Eingeloggt bleiben
+  donations:
+    destroy:
+      delete: "Spendenposten wurde gelöscht."
   donation_cases:
     update:
       update: "Spende wurde aktualisiert."

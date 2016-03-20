@@ -1,5 +1,6 @@
 <div class="donation-item">
   <div class="grid">
+    <%= link_to 'Destroy', donation_path(donation.object, token: donation.object.donation_case.token), method: :delete, data: { confirm: 'Are you sure?' } %>
     <div class="grid__half">
       <%= donation.label :title %>
       <%= donation.text_field :title, class: "#{'changed' if changeset.has_key?(:title)}" %>
