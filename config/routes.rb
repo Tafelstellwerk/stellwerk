@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :wishlists, except: [:edit, :update]
   resources :donations
+  resources :tafel, except: [:new, :show]
 
   resources :donation_cases, except: :create
   get 'donation_cases/:id/close', to: 'donation_cases#close', as: :close_donation_case

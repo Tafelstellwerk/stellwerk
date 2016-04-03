@@ -5,6 +5,7 @@
       <%= link_to "Spendenaufnahme", donation_cases_path, class: "logo" if user_signed_in?%>
       <%= link_to "Spendenwünsche", wishlists_path, class: "logo" if user_signed_in?%>
       <%= link_to "Spendenverteilung", donation_deliveries_path, class: "logo" if user_signed_in?%>
+      <%= link_to "Tafelverwaltung", tafel_index_path, class: "logo" if user_signed_in?%>
     </nav>
   </div>
 </header>

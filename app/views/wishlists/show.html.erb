@@ -1,4 +1,4 @@
-<%= link_to "Neue Wunschliste", new_wishlist_path(@closed_donation_case, token: @closed_donation_case.token), class: "logo" if user_signed_in?%>
+<%= link_to "Neue Wunschliste", new_wishlist_path(id: @closed_donation_case, token: @closed_donation_case.token), class: "logo" if user_signed_in?%>
 <div class="text"/>
   Spendenangaben
 </div>
@@ -42,3 +42,17 @@
     <% end %>
     </tbody>
 </table>
+
+<div class="text"/>
+  Wunschlisten
+</div>
+<% @closed_donation_case.wishlists.each do |wishlist| %>
+  <div>
+    <%= wishlist.tafel.try(:name) %>
+  </div>
+  <% wishlist.wishes.each do |wish| %>
+    <div/>
+      <%= "#{wish.name} #{wish.amount}" %>
+    </div>
+  <% end %>
+<% end %>

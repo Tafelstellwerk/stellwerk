@@ -1,0 +1,36 @@
+<div class="text"/>
+  Spendenposten
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Artikelname</th>
+      <th>Anzahl</th>
+      <th>mindesthaltbarkeitsdatum</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @closed_donation_case.donations.each do |donation| %>
+      <tr>
+        <td><%= "#{donation.title}"  %>
+        <td><%= "#{donation.amount}" %>
+        <td><%= "#{donation.best_before_date}" %>
+      </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<%= form_for(@wishlist, url: wishlists_path(token: @closed_donation_case.token), method: :post) do |f| %>
+  Tafel
+  <%= f.select :tafel_id, options_from_collection_for_select(@tafeln, "id", "name") %>
+  <%= f.fields_for :wishes do |wish| %>
+    <%= "#{wish.object.name}" %>
+    <%= wish.label :name %>
+    <%= wish.text_field :name %>
+    <%= wish.label :amount %>
+    <%= wish.text_field :amount %>
+  <% end %>
+  <%= f.submit "SPEICHERN", class: "button--primary button--large donation-case-form__submit-button right" %>
+
+<% end %>
