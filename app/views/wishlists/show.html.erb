@@ -1,0 +1,58 @@
+<%= link_to "Neue Wunschliste", new_wishlist_path(id: @closed_donation_case, token: @closed_donation_case.token), class: "logo" if user_signed_in?%>
+<div class="text"/>
+  Spendenangaben
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Spendentitel</th>
+      <th>Organisation</th>
+      <th>Erstellt am</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= "#{@closed_donation_case.title.presence || 'Noch kein Titel'}"  %>
+      <td><%= "#{@closed_donation_case.company_name.presence || 'Noch kein Organisation'}" %>
+      <td><%= @closed_donation_case.created_at.to_date.strftime("%d.%m.%y") %>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<div class="text"/>
+  Spendenposten
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Artikelname</th>
+      <th>Anzahl</th>
+      <th>mindesthaltbarkeitsdatum</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @closed_donation_case.donations.each do |donation| %>
+      <tr>
+        <td><%= "#{donation.title}"  %>
+        <td><%= "#{donation.amount}" %>
+        <td><%= "#{donation.best_before_date}" %>
+      </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<div class="text"/>
+  Wunschlisten
+</div>
+<% @closed_donation_case.wishlists.each do |wishlist| %>
+  <div>
+    <%= wishlist.tafel.try(:name) %>
+  </div>
+  <% wishlist.wishes.each do |wish| %>
+    <div/>
+      <%= "#{wish.name} #{wish.amount}" %>
+    </div>
+  <% end %>
+<% end %>

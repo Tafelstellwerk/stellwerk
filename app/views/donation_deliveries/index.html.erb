@@ -1,0 +1,30 @@
+
+<div class="text"/>
+  Abgeschlossene Spenden.
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Spendentitel</th>
+      <th>Organisation</th>
+      <th>Erstellt am</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @closed_donation_cases.each do |donation_case| %>
+      <tr>
+        <td><%= "#{donation_case.title.presence || 'Noch kein Titel'}"  %>
+        <td><%= "#{donation_case.company_name.presence || 'Noch kein Organisation'}" %>
+        <td><%= donation_case.created_at.to_date.strftime("%d.%m.%y") %>
+        <td>
+          <%= link_to 'Download', download_xls_donation_delivery_path(donation_case, format: :xls) %>
+          <%= link_to 'Edit', edit_donation_delivery_path(donation_case) %>
+          <%= link_to 'Destroy', donation_delivery_path(donation_case, token: donation_case.token), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+</table>

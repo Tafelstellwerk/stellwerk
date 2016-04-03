@@ -1,0 +1,45 @@
+<div class="text"/>
+  Neue Tafel anlegen.
+</div>
+<%= form_for(@edit_tafel, url: tafel_path(@edit_tafel), method: :put) do |f| %>
+  <div class="donation-case-form__section clearfix">
+    <div c lass="grid">
+      <div class="grid__half">
+        <%= f.label :name %>
+        <%= f.text_field :name%>
+      </div>
+      <div class="grid__half">
+        <%= f.label :email %>
+        <%= f.text_field :email%>
+      </div>
+    </div>
+    <%= f.submit "SPEICHERN", class: "button--primary button--large donation-case-form__submit-button right" %>
+  </div>
+<%end%>
+
+
+<div class="text"/>
+  Alle Tafeln.
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tafeln.each do |tafel| %>
+      <tr>
+        <td><%= "#{tafel.name}"  %>
+        <td><%= "#{tafel.email}" %>
+        <td>
+          <%= link_to 'Editieren', edit_tafel_path(tafel) %>
+          <%= link_to 'Delete', tafel_path(tafel, method: :delete) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+</table>

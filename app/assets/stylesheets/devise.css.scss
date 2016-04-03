@@ -1,0 +1,22 @@
+input[type="email"], input[type="password"] {
+  margin-bottom: 20px;
+}
+label[for="user_remember_me"] {
+  display: inline;
+  position: relative;
+  bottom: 2px;
+}
+.actions {
+  margin-top: 10px;
+}
+.devise-links {
+  margin-top: 10px;
+  & a {
+    padding-top: 6px;
+    color: #586994;
+    font-size: 16px;
+    &:hover {
+    color: darken(#586994, 30%);
+  }
+  }
+}

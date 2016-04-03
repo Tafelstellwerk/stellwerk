@@ -1,0 +1,25 @@
+<%= form_for(@donation_case, url: donation_delivery_path(@donation_case), method: :put) do |f| %>
+  <% if @donation_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_case.errors.count, "error") %> prohibited this donation_case from being saved:</h2>
+
+      <ul>
+      <% @donation_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="donation-case-form">
+    <%= render :partial => '/donation_deliveries/form', locals: {f: f} %>
+
+    <!-- <%= react_component("Donations", {items: []}) %> -->
+    <%= f.fields_for :donations do |donation| %>
+      <%= render :partial => '/shared/donation_without_changes', locals: {donation: donation} %>
+    <% end %>
+
+    <%= f.submit "Neuer Spendenposten", class: "button button--light donation-case-form__add-donation-case-button" %>
+    <%= link_to "Spende wiedereröffnen", reopen_donation_delivery_path(@donation_case, token: @donation_case.token), class: "button--primary button--large donation-case-form__submit-button black" if user_signed_in? %>
+    <%= f.submit "Speichern", class: "button--primary button--large donation-case-form__submit-button right" %>
+  </div>
+<% end %>

@@ -13,8 +13,22 @@
 
 <% flash.each do |name, msg| %>
   <div data-alert class="alert-box text-center">
-   <%= content_tag(:span, msg) %>
-   <a href="#" class="close">&times;</a>
+    <% if name == "closed"%>
+      <div class="centered closed" >
+        <%= msg %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% elsif name == "reopen"%>
+      <div class="centered reopen" >
+        <%= msg %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% else %>
+      <div class="centered">
+        <%= msg %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
   </div>
 <% end %>
 
@@ -25,4 +39,11 @@
 <%= render 'layouts/footer' %>
 
 </body>
+<script>
+  $(function() {
+    return $(".close").on("click", function(e) {
+      return $(".alert-box").hide();
+    });
+  });
+</script>
 </html>

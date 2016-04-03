@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813195325) do
+ActiveRecord::Schema.define(version: 20160403102202) do
 
   create_table "donation_cases", force: true do |t|
     t.string   "title"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20150813195325) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "company_name"
+    t.string   "address"
+    t.string   "plz_and_city"
+    t.string   "contact_name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "token"
+    t.boolean  "need_review"
+    t.boolean  "closed"
   end
 
   add_index "donation_cases", ["user_id"], name: "index_donation_cases_on_user_id"
@@ -29,9 +38,22 @@ ActiveRecord::Schema.define(version: 20150813195325) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "donation_case_id"
+    t.text     "properties"
+    t.string   "best_before_date"
+    t.string   "availible_from"
+    t.boolean  "froozen"
+    t.boolean  "supporting_document"
+    t.string   "fetch_time"
   end
 
   add_index "donations", ["donation_case_id"], name: "index_donations_on_donation_case_id"
+
+  create_table "tafels", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -69,9 +91,31 @@ ActiveRecord::Schema.define(version: 20150813195325) do
     t.text     "object",         limit: 1073741823
     t.datetime "created_at"
     t.integer  "transaction_id"
+    t.text     "object_changes", limit: 1073741823
   end
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   add_index "versions", ["transaction_id"], name: "index_versions_on_transaction_id"
+
+  create_table "wishes", force: true do |t|
+    t.string   "name"
+    t.string   "fetch_time"
+    t.integer  "amount"
+    t.integer  "wishlist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wishes", ["wishlist_id"], name: "index_wishes_on_wishlist_id"
+
+  create_table "wishlists", force: true do |t|
+    t.integer  "tafel_id"
+    t.integer  "donation_case_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wishlists", ["donation_case_id"], name: "index_wishlists_on_donation_case_id"
+  add_index "wishlists", ["tafel_id"], name: "index_wishlists_on_tafel_id"
 
 end

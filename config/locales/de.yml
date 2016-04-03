@@ -1,0 +1,36 @@
+de:
+  activerecord:
+    attributes:
+      donation_case:
+        company_name: Name
+        address: Straße und Hausnummer
+        plz_and_city: Postleitzahl und Ort
+        contact_name: Name
+        phone: Telefon
+        email: E-mail
+      donation:
+        title: Name
+        best_before_date: Mindesthaltbarkeitsdatum
+        availible_from: Verfügbar ab
+        froozen: Tiefkühlware
+        supporting_document: Spendenbeleg
+        fetch_time: Abholzeiten
+      user:
+        remember_me: Eingeloggt bleiben
+  donations:
+    destroy:
+      delete: "Spendenposten wurde gelöscht."
+  donation_cases:
+    update:
+      update: "Spende wurde aktualisiert."
+    destroy:
+      destroy: "Spende wurde gelöscht."
+    close:
+      close: "Spendenaufnahme abgeschlossen. Du findest die Spende nun bei Spendenverteilung."
+  donation_deliveries:
+    update:
+      update: "Spende wurde aktualisiert."
+    reopen:
+      open: "Spendenaufnahme wurde wieder geöffnet. Du findest die Spende nun bei Spendenaufnahme."
+
+

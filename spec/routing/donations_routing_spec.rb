@@ -3,9 +3,6 @@ require "rails_helper"
 RSpec.describe DonationsController, type: :routing do
   describe "routing" do
 
-    it "routes to #index" do
-      expect(:get => "/donations").to route_to("donations#index")
-    end
 
     it "routes to #new" do
       expect(:get => "/donations/new").to route_to("donations#new")

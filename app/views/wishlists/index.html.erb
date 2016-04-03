@@ -1,0 +1,28 @@
+
+<div class="text"/>
+  Abgeschlossene Spenden.
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Spendentitel</th>
+      <th>Organisation</th>
+      <th>Erstellt am</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @closed_donation_cases.each do |donation_case| %>
+      <tr>
+        <td><%= "#{donation_case.title.presence || 'Noch kein Titel'}"  %>
+        <td><%= "#{donation_case.company_name.presence || 'Noch kein Organisation'}" %>
+        <td><%= donation_case.created_at.to_date.strftime("%d.%m.%y") %>
+        <td>
+          <%= link_to 'Wunschlisten zeigen', wishlist_path(donation_case, token: donation_case.token) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+</table>

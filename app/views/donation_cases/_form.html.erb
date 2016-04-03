@@ -1,17 +1,23 @@
-<%= form_for(@donation_case) do |f| %>
-  <% if @donation_case.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@donation_case.errors.count, "error") %> prohibited this donation_case from being saved:</h2>
-
-      <ul>
-      <% @donation_case.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<h3><%= f.text_field :title, class: "#{'changed' if @donation_case_changeset.has_key?(:title)}", placeholder: "Spendentitel" %></h3>
+<div class="donation-case-form__section clearfix">
+  <div c lass="grid">
+    <div class="grid__half">
+      <h3>Organisation</h3>
+      <%= f.label :company_name %>
+      <%= f.text_field :company_name, class: "#{'changed' if @donation_case_changeset.has_key?(:company_name)}"%>
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "#{'changed' if @donation_case_changeset.has_key?(:address)}" %>
+      <%= f.label :plz_and_city %>
+      <%= f.text_field :plz_and_city, class: "#{'changed' if @donation_case_changeset.has_key?(:plz_and_city)}" %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="grid__half">
+      <h3>Ansprechpartner</h3>
+      <%= f.label :contact_name %>
+      <%= f.text_field :contact_name, class: "#{'changed' if @donation_case_changeset.has_key?(:contact_name)}" %>
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: "#{'changed' if @donation_case_changeset.has_key?(:phone)}" %>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "#{'changed' if @donation_case_changeset.has_key?(:email)}" %>
+    </div>
   </div>
-<% end %>
+</div>

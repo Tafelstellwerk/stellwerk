@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Column ss:AutoFitWidth="0" ss:Width="85" />  
+      <Column ss:AutoFitWidth="0" ss:Width="115" />  
+      <Column ss:AutoFitWidth="0" ss:Width="115" />  
+      <Column ss:AutoFitWidth="0" ss:Width="160" />  
+      <Column ss:AutoFitWidth="0" ss:Width="115" />  
+      <Column ss:AutoFitWidth="0" ss:Width="85" />  
+      <Column ss:AutoFitWidth="0" ss:Width="85" />  
+      <Column ss:AutoFitWidth="0" ss:Width="160" /> 
+      <Row>
+        <Cell><Data ss:Type="String">Spendentitel</Data></Cell>
+        <Cell></Cell>
+        <Cell></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String" ss:Width="160"><%= @donation_case.title %></Data></Cell>
+        <Cell></Cell>
+        <Cell></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String">Name der Organisation</Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String">Ansprechpartner</Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="String"><%= @donation_case.company_name %></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @donation_case.contact_name %></Data></Cell>
+      </Row>
+    </Table>
+  </Worksheet>
+</Workbook>

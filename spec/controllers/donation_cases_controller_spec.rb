@@ -53,9 +53,17 @@ RSpec.describe DonationCasesController, type: :controller do
   end
 
   describe "GET #new" do
-    it "assigns a new donation_case as @donation_case" do
+    login_user
+    it "assigns a donation_case as @donation_case" do
       get :new, {}, valid_session
-      expect(assigns(:donation_case)).to be_a_new(DonationCase)
+      expect(assigns(:donation_case)).to be_an_instance_of(DonationCase)
+    end
+  end
+
+    describe "GET #new" do
+    it "doenst assign a donation_case if not authenticated"do
+      get :new, {}, valid_session
+      expect(assigns(:donation_case)).to be_nil
     end
   end
 

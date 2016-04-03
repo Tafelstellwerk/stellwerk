@@ -19,10 +19,6 @@ RSpec.describe DonationCasesController, type: :routing do
       expect(:get => "/donation_cases/1/edit").to route_to("donation_cases#edit", :id => "1")
     end
 
-    it "routes to #create" do
-      expect(:post => "/donation_cases").to route_to("donation_cases#create")
-    end
-
     it "routes to #update" do
       expect(:put => "/donation_cases/1").to route_to("donation_cases#update", :id => "1")
     end
