@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317090801) do
+ActiveRecord::Schema.define(version: 20160403102202) do
 
   create_table "donation_cases", force: true do |t|
     t.string   "title"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 20160317090801) do
   end
 
   add_index "donations", ["donation_case_id"], name: "index_donations_on_donation_case_id"
+
+  create_table "tafels", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -89,5 +96,26 @@ ActiveRecord::Schema.define(version: 20160317090801) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   add_index "versions", ["transaction_id"], name: "index_versions_on_transaction_id"
+
+  create_table "wishes", force: true do |t|
+    t.string   "name"
+    t.string   "fetch_time"
+    t.integer  "amount"
+    t.integer  "wishlist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wishes", ["wishlist_id"], name: "index_wishes_on_wishlist_id"
+
+  create_table "wishlists", force: true do |t|
+    t.integer  "tafel_id"
+    t.integer  "donation_case_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wishlists", ["donation_case_id"], name: "index_wishlists_on_donation_case_id"
+  add_index "wishlists", ["tafel_id"], name: "index_wishlists_on_tafel_id"
 
 end

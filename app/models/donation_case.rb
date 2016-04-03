@@ -16,7 +16,7 @@ class DonationCase < ActiveRecord::Base
   end
 
   def get_changeset(user_signed_in)
-    user_signed_in ? self.versions.last.changeset : Hash.new
+    (user_signed_in && self.need_review == true)? self.versions.last.changeset : Hash.new
   end
 
   def get_donations_changeset(user_signed_in)
