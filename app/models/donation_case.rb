@@ -1,6 +1,8 @@
 class DonationCase < ActiveRecord::Base
   belongs_to :user
   has_many :donations
+  has_many :wishlists
+
   accepts_nested_attributes_for :donations
   before_create :set_token
 
